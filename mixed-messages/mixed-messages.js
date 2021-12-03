@@ -31,3 +31,15 @@ const reassurances = ['I am serious about this', 'I swear', 'I promise', 'I am n
 
 const punctiation = ['.', '!'];
 
+function generatePetName() {
+    return petNames[Math.floor(Math.random() * petNames.length)];
+}
+
+function generateMessage() {
+    return messages[Math.floor(Math.random() * messages.length)];
+}
+
+function generateReassurance() {
+    return reassurances[Math.floor(Math.random() * reassurances.length)];
+}
+
