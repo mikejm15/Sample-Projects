@@ -7,7 +7,7 @@ const petNames = ['sweetie', 'honey', 'darling', 'baby', 'babe', 'sweetheart', '
     'peach', 'goddess', 'angel', 'apple of my eye', 'marshmallow'
 ];
 
-const messages = ['I Love You', 'You are the Love of My Life', 'I will always Love You',
+const phrases = ['I Love You', 'You are the Love of My Life', 'I will always Love You',
     'I am not going to stop loving you', 'You are the most precious person in my life',
     'You complete me', 'I do not know what I would do without you', 'I would be lost without you',
     'I have fallen in love with you', 'I am falling in love with you', 'Loving you is easy',
@@ -31,15 +31,36 @@ const reassurances = ['I am serious about this', 'I swear', 'I promise', 'I am n
 
 const punctiation = ['.', '!'];
 
+// generate a random pet name from the array
 function generatePetName() {
     return petNames[Math.floor(Math.random() * petNames.length)];
 }
 
-function generateMessage() {
-    return messages[Math.floor(Math.random() * messages.length)];
+// generate a random phrase from the array
+function generatePhrase() {
+    return phrases[Math.floor(Math.random() * phrases.length)];
 }
 
+// generate a random reassurance phrase
 function generateReassurance() {
     return reassurances[Math.floor(Math.random() * reassurances.length)];
 }
 
+// generate the mixed message from components
+function generateMessage() {
+    let name = generatePetName();
+    let phrase = generatePhrase();
+    let reassurance = generateReassurance();
+    
+    // capitalize pet name
+    name = name.charAt(0).toUpperCase() + name.slice(1);
+
+    // return message
+    return `${name}, ${phrase} and ${reassurance + punctiation[Math.floor(Math.random() * 2)]}`
+}
+
+// generate and store message
+let message = (generateMessage());
+
+// print message
+console.log(message);
